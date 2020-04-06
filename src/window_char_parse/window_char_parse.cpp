@@ -18,6 +18,7 @@ WindowCharParse::WindowCharParse(QWidget *parent) :
     connect(ui->actionAbout_program, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionRefresh, SIGNAL(triggered()), this, SLOT(actions()));
+    connect(ui->actionShow_ASCII_table, SIGNAL(triggered()), this, SLOT(actions()));
 
     connect(ui->buttonBack, SIGNAL(pressed()), this, SLOT(back()));
 
@@ -46,9 +47,16 @@ void WindowCharParse::actions() {
                                  "Telegram: @vlad_is_real\n"
                                  "GMail: vladislav.kolyadenko@gmail.com\n"
                                  "Instagram: @ncks_gwc");
+    } else if (action == ui->actionShow_ASCII_table) {
+        QMessageBox msgBox;
+
+        msgBox.setWindowTitle("BinaRy");
+        msgBox.setIconPixmap(QPixmap(":images/asciiTable.jpg"));
+        msgBox.show();
+        msgBox.exec();
     } else if (action == ui->actionRefresh) {
-        ui->lineEditUpper->clear();
-        ui->lineEditLower->clear();
+        ui->lineEdit->clear();
+        ui->labelResult->setText("Result: ");
     } else if (action == ui->actionExit)
         QApplication::quit();
     else {
@@ -65,20 +73,72 @@ void WindowCharParse::back() {
 }
 
 void WindowCharParse::swap() {
-    QString temp = ui->lineEditLower->text();
-    ui->lineEditLower->setText(ui->lineEditUpper->text());
-    ui->lineEditUpper->setText(temp);
+    QString temp = ui->labelResult->text().mid(
+            ui->labelResult->text().indexOf(' ') + 1,
+            ui->labelResult->text().size() -
+            ui->labelResult->text().left(ui->labelResult->text().indexOf(' ')).size());
 
-    if (ui->lineEditUpper->placeholderText() == "Enter text here") {
-        ui->lineEditUpper->setPlaceholderText("Enter binary code here");
-        ui->lineEditUpper->setValidator(binRegExpVal);
-    } else
-        ui->lineEditUpper->setPlaceholderText("Enter text here");
+    temp.remove('\n');
+    ui->labelResult->setText("Result:");
+    ui->lineEdit->setText(temp);
 
-    ui->lineEditLower->clear();
+    if (ui->lineEdit->placeholderText() == "Enter text here") {
+        ui->lineEdit->setPlaceholderText("Enter binary code here");
+        ui->lineEdit->setValidator(binRegExpVal);
+    } else {
+        ui->lineEdit->setPlaceholderText("Enter text here");
+        ui->lineEdit->setValidator(nullptr);
+    }
 }
 
 void WindowCharParse::parse() {
-    if (ui->lineEditUpper->text().isEmpty())
+    if (ui->lineEdit->text().isEmpty())
         ui->statusBar->showMessage("Line edit shouldn`t be empty", 5000);
+
+    ui->labelResult->setText("Result: ");
+
+    if (ui->lineEdit->placeholderText() == "Enter text here") {
+                foreach(const auto &ch, ui->lineEdit->text()) {
+                ui->labelResult->setText(ui->labelResult->text() + checkBinNum(ch));
+
+                if (ch == ' ')
+                    ui->labelResult->setText(ui->labelResult->text() + checkBinNum(ch) + '\n');
+            }
+    } else {
+        if (ui->lineEdit->text().size() % 8) {
+            qDebug() << "Invalid binary code!" << Qt::endl;
+
+            ui->statusBar->showMessage("Invalid binary code", 5000);
+
+            return;
+        }
+
+        QVector<QString> tempStrVec;
+        QVector<unsigned> tempNumVec;
+
+        for (int i = 0; i < ui->lineEdit->text().size(); i += 8)
+            tempStrVec.push_back(ui->lineEdit->text().mid(i, 8));
+
+                foreach(auto str, tempStrVec) tempNumVec.push_back(str.toUInt(nullptr, 2));
+
+        for (int i = 0; i < tempNumVec.size(); ++i) {
+            if (tempNumVec.at(i) == (unsigned) ' ' && tempNumVec.at(i) == tempNumVec.at(i + 1))
+                tempNumVec.erase(tempNumVec.begin() + i);
+        }
+
+                foreach(auto val, tempNumVec) ui->labelResult->setText(ui->labelResult->text() + (QChar) val);
+    }
 }
+
+QString WindowCharParse::checkBinNum(const QChar &ch) {
+    QString temp = QString::number(ch.unicode(), 2);
+
+    if (temp.size() % 8) {
+        do
+            temp.push_front('0');
+        while (temp.size() != 8);
+    }
+
+    return temp;
+}
+

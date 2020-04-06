@@ -58,7 +58,7 @@
      </layout>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEditUpper">
+     <widget class="QLineEdit" name="lineEdit">
       <property name="placeholderText">
        <string>Enter text here</string>
       </property>
@@ -109,12 +109,9 @@
      </layout>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEditLower">
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-      <property name="placeholderText">
-       <string>Translation</string>
+     <widget class="QLabel" name="labelResult">
+      <property name="text">
+       <string>Result:</string>
       </property>
      </widget>
     </item>
@@ -135,6 +132,7 @@
     </property>
     <addaction name="actionAbout_developer"/>
     <addaction name="actionAbout_program"/>
+    <addaction name="actionShow_ASCII_table"/>
     <addaction name="actionRefresh"/>
     <addaction name="actionExit"/>
    </widget>
@@ -171,6 +169,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionShow_ASCII_table">
+   <property name="text">
+    <string>Show ASCII table</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
    </property>
   </action>
  </widget>

@@ -51,8 +51,7 @@
     <item row="1" column="0">
      <widget class="QPushButton" name="buttonCharParse">
       <property name="text">
-       <string>Translate to ASCII characters
-(Currently unavailable)</string>
+       <string>Translate to ASCII characters</string>
       </property>
      </widget>
     </item>

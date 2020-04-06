@@ -30,6 +30,8 @@ private:
     Ui::WindowCharParse *ui;
 
     QRegExpValidator *binRegExpVal;
+
+    static QString checkBinNum(const QChar &ch);
 };
 
 #endif //WINDOW_CHAR_PARSE_H

@@ -13,8 +13,8 @@ WindowArithmetic::WindowArithmetic(QWidget *parent) :
 
     ui->buttonSwap->setIcon(QIcon(":/icons/swapIcon.ico"));
 
-    ui->lineEditLower->setValidator(new QRegExpValidator(QRegExp("[01]{0,}"), this));
-    ui->lineEditUpper->setValidator(new QRegExpValidator(QRegExp("[01]{0,}"), this));
+    ui->lineEditLower->setValidator(new QRegExpValidator(QRegExp("[01]{0,64}"), this));
+    ui->lineEditUpper->setValidator(new QRegExpValidator(QRegExp("[01]{0,64}"), this));
 
     connect(ui->actionAbout_developer, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionAbout_program, SIGNAL(triggered()), this, SLOT(actions()));
@@ -48,6 +48,7 @@ void WindowArithmetic::actions() {
     } else if (action == ui->actionRefresh) {
         ui->lineEditUpper->clear();
         ui->lineEditLower->clear();
+        ui->labelResult->setText("Result:");
         ui->comboBoxOps->setCurrentIndex(0);
     } else if (action == ui->actionExit)
         QApplication::quit();
@@ -83,23 +84,23 @@ void WindowArithmetic::calculate() {
         return;
     }
 
-    qint64 num1 = ui->lineEditUpper->text().toLongLong(nullptr, 2);
-    qint64 num2 = ui->lineEditLower->text().toLongLong(nullptr, 2);
+    quint64 num1 = ui->lineEditUpper->text().toULongLong(nullptr, 2);
+    quint64 num2 = ui->lineEditLower->text().toULongLong(nullptr, 2);
 
     switch (ui->comboBoxOps->currentIndex()) {
-        case 1:
+        case 1: // +
             ui->labelResult->setText("Result: " + QString::number(num1 + num2, 2));
 
             break;
-        case 2:
+        case 2: // -
             ui->labelResult->setText("Result: " + QString::number(num1 - num2, 2));
 
             break;
-        case 3:
+        case 3: // *
             ui->labelResult->setText("Result: " + QString::number(num1 * num2, 2));
 
             break;
-        case 4:
+        case 4: // /
             ui->labelResult->setText("Result: " + QString::number(num1 / num2, 2));
 
             break;

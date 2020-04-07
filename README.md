@@ -3,7 +3,7 @@
 Simple program to operate with binary code<br/>
 There are next features:
 * Arithmetical operations
-* Logical operations
+* Bitwise operations
 * Translating binary code to ASCII characters and vice versa
 * Translating binary code to other numeric systems and vice versa
 

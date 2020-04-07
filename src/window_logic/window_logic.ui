@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>639</width>
-    <height>314</height>
+    <width>491</width>
+    <height>240</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -32,26 +32,183 @@
    <string>BinaRy</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="buttonBack">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>140</y>
-      <width>89</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Back</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="buttonBack">
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEditUpper">
+      <property name="placeholderText">
+       <string>Enter first number here</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="lineEditShift">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Enter shift size</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox">
+        <item>
+         <property name="text">
+          <string>Choose the operation</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>AND</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>OR</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>XOR</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Left shift</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Right shift</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>NOT</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonSwap">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdirLower">
+      <property name="placeholderText">
+       <string>Enter second number here</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonCalculate">
+        <property name="text">
+         <string>Calculate</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="labelResult">
+      <property name="text">
+       <string>Result: </string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>639</width>
+     <width>491</width>
      <height>22</height>
     </rect>
    </property>
@@ -61,10 +218,12 @@
     </property>
     <addaction name="actionAbout_developer"/>
     <addaction name="actionAbout_program"/>
+    <addaction name="actionRefresh"/>
     <addaction name="actionExit"/>
    </widget>
    <addaction name="menuExtra"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAbout_developer">
    <property name="text">
     <string>About developer</string>
@@ -87,6 +246,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
    </property>
   </action>
  </widget>

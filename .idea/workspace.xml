@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="BinaRy" targetName="BinaRy" />
       <config projectName="BinaRy" targetName="BinaRy_autogen" />
+      <config projectName="BinaRy" targetName="BinaRy" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -14,13 +14,13 @@
   <component name="ChangeListManager">
     <list default="true" id="053075aa-514d-4ef0-9f0a-f7d645d97486" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/resources.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/res/resources.qrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_window/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_window/main_window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window_arithmetic/window_arithmetic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_arithmetic/window_arithmetic.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window_logic/window_logic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_logic/window_logic.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window_logic/window_logic.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_logic/window_logic.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window_logic/window_logic.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_logic/window_logic.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +89,7 @@
       <workItem from="1585997213073" duration="8956000" />
       <workItem from="1586072669089" duration="299000" />
       <workItem from="1586168109722" duration="6331000" />
+      <workItem from="1586252251094" duration="5945000" />
     </task>
     <servers />
   </component>
@@ -100,22 +101,22 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="416" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1366.741@0.27.1366.741" timestamp="1585407953383" />
-    <state width="1320" height="215" key="GridCell.Tab.0.bottom" timestamp="1586174525804">
+    <state width="1320" height="172" key="GridCell.Tab.0.bottom" timestamp="1586263216860">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="215" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1586174525804" />
-    <state width="1320" height="215" key="GridCell.Tab.0.center" timestamp="1586174525803">
+    <state width="1320" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1586263216860" />
+    <state width="1320" height="172" key="GridCell.Tab.0.center" timestamp="1586263216858">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="215" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1586174525803" />
-    <state width="1320" height="215" key="GridCell.Tab.0.left" timestamp="1586174525802">
+    <state width="1320" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1586263216858" />
+    <state width="1320" height="172" key="GridCell.Tab.0.left" timestamp="1586263216857">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="215" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1586174525802" />
-    <state width="1320" height="215" key="GridCell.Tab.0.right" timestamp="1586174525803">
+    <state width="1320" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1586263216857" />
+    <state width="1320" height="172" key="GridCell.Tab.0.right" timestamp="1586263216859">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="215" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1586174525803" />
+    <state width="1320" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1586263216859" />
     <state width="1320" height="215" key="GridCell.Tab.1.bottom" timestamp="1586174525805">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

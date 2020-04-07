@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>474</width>
-    <height>130</height>
+    <height>113</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -36,8 +36,7 @@
     <item row="0" column="0">
      <widget class="QPushButton" name="buttonLogic">
       <property name="text">
-       <string>Logical operations
-(Currently unavailable)</string>
+       <string>Bitwise operations</string>
       </property>
      </widget>
     </item>

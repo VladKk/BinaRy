@@ -105,7 +105,7 @@ void WindowCharParse::parse() {
                     ui->labelResult->setText(ui->labelResult->text() + checkBinNum(ch) + '\n');
             }
     } else {
-        if (ui->lineEdit->text().size() % 8) {
+        if ((ui->lineEdit->text().size() % 8) != 0) {
             qDebug() << "Invalid binary code!" << Qt::endl;
 
             ui->statusBar->showMessage("Invalid binary code", 5000);
@@ -133,7 +133,7 @@ void WindowCharParse::parse() {
 QString WindowCharParse::checkBinNum(const QChar &ch) {
     QString temp = QString::number(ch.unicode(), 2);
 
-    if (temp.size() % 8) {
+    if ((temp.size() % 8) != 0) {
         do
             temp.push_front('0');
         while (temp.size() != 8);

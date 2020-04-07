@@ -21,6 +21,12 @@ private slots:
 
     void back();
 
+    void swap();
+
+    void calculate();
+
+    void changeUi();
+
 private:
     Ui::WindowLogic *ui;
 };

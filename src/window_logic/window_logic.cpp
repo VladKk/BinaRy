@@ -1,6 +1,5 @@
 #include <QMessageBox>
 #include <QDebug>
-#include <QComboBox>
 
 #include "window_logic.h"
 #include "./ui_window_logic.h"
@@ -14,8 +13,8 @@ WindowLogic::WindowLogic(QWidget *parent) :
 
     ui->buttonSwap->setIcon(QIcon(":/icons/swapIcon.ico"));
 
-    ui->lineEditUpper->setValidator(new QRegExpValidator(QRegExp("[01]{0,64}"), this));
-    ui->lineEdirLower->setValidator(new QRegExpValidator(QRegExp("[01]{0,64}"), this));
+    ui->lineEditUpper->setValidator(new QRegExpValidator(QRegExp("[01]{0,}"), this));
+    ui->lineEdirLower->setValidator(new QRegExpValidator(QRegExp("[01]{0,}"), this));
     ui->lineEditShift->setValidator(new QRegExpValidator(QRegExp("[0-9]{0,2}"), this));
 
     ui->lineEditShift->hide();

@@ -13,8 +13,8 @@ WindowArithmetic::WindowArithmetic(QWidget *parent) :
 
     ui->buttonSwap->setIcon(QIcon(":/icons/swapIcon.ico"));
 
-    ui->lineEditLower->setValidator(new QRegExpValidator(QRegExp("[01]{0,64}"), this));
-    ui->lineEditUpper->setValidator(new QRegExpValidator(QRegExp("[01]{0,64}"), this));
+    ui->lineEditLower->setValidator(new QRegExpValidator(QRegExp("[01]{0,}"), this));
+    ui->lineEditUpper->setValidator(new QRegExpValidator(QRegExp("[01]{0,}"), this));
 
     connect(ui->actionAbout_developer, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionAbout_program, SIGNAL(triggered()), this, SLOT(actions()));

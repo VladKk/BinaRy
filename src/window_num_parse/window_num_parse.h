@@ -2,6 +2,7 @@
 #define WINDOW_NUM_PARSE_H
 
 #include <QMainWindow>
+#include <QRegExpValidator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class WindowNumParse; }
@@ -21,8 +22,17 @@ private slots:
 
     void back();
 
+    void switchValidators();
+
+    void swap();
+
 private:
     Ui::WindowNumParse *ui;
+
+    QRegExpValidator *binValidator;
+    QRegExpValidator *decValidator;
+    QRegExpValidator *octValidator;
+    QRegExpValidator *hexValidator;
 };
 
 #endif //WINDOW_NUM_PARSE_H

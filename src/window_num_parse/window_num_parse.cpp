@@ -27,6 +27,8 @@ WindowNumParse::WindowNumParse(QWidget *parent) :
     connect(ui->buttonBack, SIGNAL(pressed()), this, SLOT(back()));
 
     connect(ui->buttonSwap, SIGNAL(pressed()), this, SLOT(swap()));
+
+    connect(ui->buttonTranslate, SIGNAL(pressed()), this, SLOT(translate()));
 }
 
 WindowNumParse::~WindowNumParse() {
@@ -80,6 +82,74 @@ void WindowNumParse::swap() {
 
     ui->labelResult->setText("Result:");
     ui->lineEditNum->setText(temp);
+}
+
+void WindowNumParse::translate() {
+    if (ui->comboBoxFrom->currentIndex() == 0 || ui->comboBoxTo->currentIndex() == 0) {
+        ui->statusBar->showMessage("Choose one of the options to translate", 5000);
+
+        return;
+    }
+
+    if (ui->lineEditNum->text().isEmpty()) {
+        ui->statusBar->showMessage("Enter number to translate", 5000);
+
+        return;
+    }
+
+    if (ui->comboBoxFrom->currentIndex() == ui->comboBoxTo->currentIndex()) {
+        ui->statusBar->showMessage("It is pointless to translate the same numeric system", 5000);
+
+        return;
+    }
+
+    qint64 num;
+
+    switch (ui->comboBoxFrom->currentIndex()) {
+        case 1: // BIN
+            num = ui->lineEditNum->text().toLongLong(nullptr, 2);
+
+            break;
+        case 2: // DEC
+            num = ui->lineEditNum->text().toLongLong(nullptr, 10);
+
+            break;
+        case 3: // OCT
+            num = ui->lineEditNum->text().toLongLong(nullptr, 8);
+
+            break;
+        case 4: // HEX
+            num = ui->lineEditNum->text().toLongLong(nullptr, 16);
+
+            break;
+        default:
+            qDebug() << "Invalid choice" << Qt::endl;
+
+            return;
+    }
+
+    switch (ui->comboBoxTo->currentIndex()) {
+        case 1: // BIN
+            ui->labelResult->setText("Result: " + QString::number(num, 2));
+
+            break;
+        case 2: // DEC
+            ui->labelResult->setText("Result: " + QString::number(num, 10));
+
+            break;
+        case 3: // OCT
+            ui->labelResult->setText("Result: " + QString::number(num, 8));
+
+            break;
+        case 4: // HEX
+            ui->labelResult->setText("Result: " + QString::number(num, 16).toUpper());
+
+            break;
+        default:
+            qDebug() << "Invalid choice" << Qt::endl;
+
+            return;
+    }
 }
 
 void WindowNumParse::switchValidators() {

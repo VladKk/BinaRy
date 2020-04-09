@@ -26,6 +26,8 @@ private slots:
 
     void swap();
 
+    void translate();
+
 private:
     Ui::WindowNumParse *ui;
 

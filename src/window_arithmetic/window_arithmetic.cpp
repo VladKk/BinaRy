@@ -84,8 +84,8 @@ void WindowArithmetic::calculate() {
         return;
     }
 
-    quint64 num1 = ui->lineEditUpper->text().toULongLong(nullptr, 2);
-    quint64 num2 = ui->lineEditLower->text().toULongLong(nullptr, 2);
+    qint64 num1 = ui->lineEditUpper->text().toLongLong(nullptr, 2);
+    qint64 num2 = ui->lineEditLower->text().toLongLong(nullptr, 2);
 
     switch (ui->comboBoxOps->currentIndex()) {
         case 1: // +

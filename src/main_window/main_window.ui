@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>474</width>
-    <height>113</height>
+    <height>96</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -57,8 +57,7 @@
     <item row="1" column="1">
      <widget class="QPushButton" name="buttonNumParse">
       <property name="text">
-       <string>Translate to other numeric systems
-(Currently unavailable)</string>
+       <string>Translate to other numeric systems</string>
       </property>
      </widget>
     </item>

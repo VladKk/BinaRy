@@ -7,8 +7,6 @@ There are next features:
 * Translating binary code to ASCII characters and vice versa
 * Translating binary code to other numeric systems and vice versa
 
-**Work in progress**
-
 ## Built With
 
 * [Qt](https://www.qt.io/) - main platform the project was created on

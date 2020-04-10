@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+// Place WindowArithmetic class to namespace Ui to create ui
 QT_BEGIN_NAMESPACE
 namespace Ui { class WindowArithmetic; }
 QT_END_NAMESPACE

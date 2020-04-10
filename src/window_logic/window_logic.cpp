@@ -7,18 +7,23 @@
 WindowLogic::WindowLogic(QWidget *parent) :
         QMainWindow(parent),
         ui(new Ui::WindowLogic) {
+    // Set window icon and setup ui
     setWindowIcon(QIcon(":/icons/windowIcon.ico"));
 
     ui->setupUi(this);
 
+    // Set icon on swap button
     ui->buttonSwap->setIcon(QIcon(":/icons/swapIcon.ico"));
 
+    // Set validators on line edits
     ui->lineEditUpper->setValidator(new QRegExpValidator(QRegExp("[01]{0,}"), this));
     ui->lineEdirLower->setValidator(new QRegExpValidator(QRegExp("[01]{0,}"), this));
     ui->lineEditShift->setValidator(new QRegExpValidator(QRegExp("[0-9]{0,2}"), this));
 
+    // Hide specific line edit (it will be appeared only for shifts)
     ui->lineEditShift->hide();
 
+    // Connect needed ui elements to actions
     connect(ui->actionAbout_developer, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionAbout_program, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(actions()));
@@ -36,8 +41,10 @@ WindowLogic::WindowLogic(QWidget *parent) :
 WindowLogic::~WindowLogic() { delete ui; }
 
 void WindowLogic::actions() {
+    // Receive signal from action
     auto *action = (QAction *) sender();
 
+    // Trigger action
     if (action == ui->actionAbout_program) {
         QMessageBox::information(this, "BinaRy",
                                  "Simple program to operate with binary numbers\n"
@@ -51,6 +58,7 @@ void WindowLogic::actions() {
                                  "GMail: vladislav.kolyadenko@gmail.com\n"
                                  "Instagram: @ncks_gwc");
     } else if (action == ui->actionRefresh) {
+        // Clear everything
         ui->lineEditUpper->clear();
         ui->lineEdirLower->clear();
         ui->lineEditShift->clear();
@@ -66,18 +74,21 @@ void WindowLogic::actions() {
 }
 
 void WindowLogic::back() {
+    // Return to main window and keep this window hidden
     QMainWindow::parentWidget()->show();
 
     this->hide();
 }
 
 void WindowLogic::swap() {
+    // Swap text in upper and lower line edits
     QString temp = ui->lineEditUpper->text();
     ui->lineEditUpper->setText(ui->lineEdirLower->text());
     ui->lineEdirLower->setText(temp);
 }
 
 void WindowLogic::calculate() {
+    // Check user to enter text and choose operation
     if (ui->lineEdirLower->text().isEmpty() || ui->lineEditUpper->text().isEmpty()) {
         ui->statusBar->showMessage("Line edits shouldn't be empty", 5000);
 
@@ -90,9 +101,11 @@ void WindowLogic::calculate() {
         return;
     }
 
+    // Temporary parse binary code into decimal numbers
     quint64 num1 = ui->lineEditUpper->text().toULongLong(nullptr, 2);
     quint64 num2 = ui->lineEdirLower->text().toULongLong(nullptr, 2);
 
+    // Show result depending on chosen operation
     switch (ui->comboBox->currentIndex()) {
         case 1: // AND
             ui->labelResult->setText("Result: " + QString::number(num1 & num2, 2));
@@ -128,6 +141,7 @@ void WindowLogic::calculate() {
 }
 
 void WindowLogic::changeUi() {
+    // Show or hide needed ui elements for specific operation
     switch (ui->comboBox->currentIndex()) {
         case 0: // Default text
         case 1: // AND

@@ -4,6 +4,7 @@
 #include "main_window.h"
 #include "./ui_main_window.h"
 
+// Create main window with empty pointers on additional windows
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
         winNumParse(nullptr),
@@ -11,10 +12,12 @@ MainWindow::MainWindow(QWidget *parent) :
         winArithmetic(nullptr),
         winLogic(nullptr),
         ui(new Ui::MainWindow) {
+    // Set window icon and setup ui
     setWindowIcon(QIcon(":/icons/windowIcon.ico"));
 
     ui->setupUi(this);
 
+    // Connect needed ui elements to actions
     connect(ui->actionAbout_developer, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionAbout_program, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(actions()));
@@ -34,8 +37,10 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::actions() {
+    // Receive signal from action
     auto *action = (QAction *) sender();
 
+    // Trigger needed action
     if (action == ui->actionAbout_program) {
         QMessageBox::information(this, "BinaRy",
                                  "Simple program to operate with binary numbers\n"
@@ -58,8 +63,10 @@ void MainWindow::actions() {
 }
 
 void MainWindow::opsRedirect() {
+    // Receive signal from button
     auto *button = (QPushButton *) sender();
 
+    // Create new window object (only once) depending on button
     if (button == ui->buttonCharParse) {
         winCharParse = getInstance(winCharParse);
 
@@ -87,6 +94,7 @@ void MainWindow::opsRedirect() {
     }
 }
 
+// "Singleton" for new windows
 template<typename T>
 T *MainWindow::getInstance(T *instance) {
     if (instance == nullptr)

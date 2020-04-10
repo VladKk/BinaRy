@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+// Place WindowLogic class into Ui namespace to create ui
 QT_BEGIN_NAMESPACE
 namespace Ui { class WindowLogic; }
 QT_END_NAMESPACE

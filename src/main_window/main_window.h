@@ -8,6 +8,7 @@
 #include "../window_char_parse/window_char_parse.h"
 #include "../window_num_parse/window_num_parse.h"
 
+// Place MainWindow class to Ui namespace to create ui
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -29,6 +30,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    // Connect other windows to main window
     WindowLogic *winLogic;
     WindowArithmetic *winArithmetic;
     WindowCharParse *winCharParse;

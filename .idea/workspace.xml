@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="BinaRy" targetName="BinaRy_autogen" />
       <config projectName="BinaRy" targetName="BinaRy" />
+      <config projectName="BinaRy" targetName="BinaRy_autogen" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -14,7 +14,17 @@
   <component name="ChangeListManager">
     <list default="true" id="053075aa-514d-4ef0-9f0a-f7d645d97486" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_window/main_window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_window/main_window.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_window/main_window.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_window/main_window.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_window/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_window/main_window.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window_arithmetic/window_arithmetic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_arithmetic/window_arithmetic.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window_arithmetic/window_arithmetic.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_arithmetic/window_arithmetic.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_char_parse/window_char_parse.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window_logic/window_logic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_logic/window_logic.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window_logic/window_logic.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_logic/window_logic.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window_num_parse/window_num_parse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_num_parse/window_num_parse.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window_num_parse/window_num_parse.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/window_num_parse/window_num_parse.h" afterDir="false" />
     </list>
@@ -90,6 +100,7 @@
       <workItem from="1586352155561" duration="3352000" />
       <workItem from="1586420089669" duration="1193000" />
       <workItem from="1586446852108" duration="944000" />
+      <workItem from="1586513346844" duration="4557000" />
     </task>
     <servers />
   </component>
@@ -109,22 +120,22 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="461" y="161" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1586352228490" />
-    <state width="1320" height="172" key="GridCell.Tab.0.bottom" timestamp="1586447795817">
+    <state width="1320" height="172" key="GridCell.Tab.0.bottom" timestamp="1586518231197">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1586447795817" />
-    <state width="1320" height="172" key="GridCell.Tab.0.center" timestamp="1586447795815">
+    <state width="1320" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1586518231197" />
+    <state width="1320" height="172" key="GridCell.Tab.0.center" timestamp="1586518231195">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1586447795815" />
-    <state width="1320" height="172" key="GridCell.Tab.0.left" timestamp="1586447795814">
+    <state width="1320" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1586518231195" />
+    <state width="1320" height="172" key="GridCell.Tab.0.left" timestamp="1586518231195">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1586447795814" />
-    <state width="1320" height="172" key="GridCell.Tab.0.right" timestamp="1586447795816">
+    <state width="1320" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1586518231195" />
+    <state width="1320" height="172" key="GridCell.Tab.0.right" timestamp="1586518231196">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1586447795816" />
+    <state width="1320" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1586518231196" />
     <state width="1320" height="215" key="GridCell.Tab.1.bottom" timestamp="1586174525805">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -149,9 +160,9 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="0" y="27" width="866" height="741" key="find.popup/0.27.1366.741@0.27.1366.741" timestamp="1585414996167" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1585409306286">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1586514542839">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741@0.27.1366.741" timestamp="1585409306286" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741@0.27.1366.741" timestamp="1586514542839" />
   </component>
 </project>

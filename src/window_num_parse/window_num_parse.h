@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QRegExpValidator>
 
+// Place WindowNumParse class into Ui namespace to create ui
 QT_BEGIN_NAMESPACE
 namespace Ui { class WindowNumParse; }
 QT_END_NAMESPACE
@@ -27,6 +28,8 @@ private slots:
     void swap();
 
     void translate();
+
+    void checkLineEdit();
 
 private:
     Ui::WindowNumParse *ui;

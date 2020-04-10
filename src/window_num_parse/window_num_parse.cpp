@@ -4,6 +4,7 @@
 #include "window_num_parse.h"
 #include "./ui_window_num_parse.h"
 
+// Create WindowNumParse object with validators
 WindowNumParse::WindowNumParse(QWidget *parent) :
         QMainWindow(parent),
         binValidator(new QRegExpValidator(QRegExp("[01]{0,}"), this)),
@@ -11,18 +12,23 @@ WindowNumParse::WindowNumParse(QWidget *parent) :
         octValidator(new QRegExpValidator(QRegExp("[0-8]{0,}"), this)),
         hexValidator(new QRegExpValidator(QRegExp("[0-9A-F]{0,}"), this)),
         ui(new Ui::WindowNumParse) {
+    // Set window icon and setup ui
     setWindowIcon(QIcon(":/icons/windowIcon.ico"));
 
     ui->setupUi(this);
 
+    // Set icon on swap button
     ui->buttonSwap->setIcon(QIcon(":/icons/swapIcon.ico"));
 
+    // Connect needed ui elements to actions
     connect(ui->actionAbout_developer, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionAbout_program, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(actions()));
     connect(ui->actionRefresh, SIGNAL(triggered()), this, SLOT(actions()));
 
     connect(ui->comboBoxFrom, SIGNAL(currentIndexChanged(int)), this, SLOT(switchValidators()));
+
+    connect(ui->lineEditNum, SIGNAL(textEdited(QString)), this, SLOT(checkLineEdit()));
 
     connect(ui->buttonBack, SIGNAL(pressed()), this, SLOT(back()));
 
@@ -40,6 +46,7 @@ WindowNumParse::~WindowNumParse() {
 }
 
 void WindowNumParse::actions() {
+    // Receive signal from action
     auto *action = (QAction *) sender();
 
     if (action == ui->actionAbout_program) {
@@ -55,6 +62,7 @@ void WindowNumParse::actions() {
                                  "GMail: vladislav.kolyadenko@gmail.com\n"
                                  "Instagram: @ncks_gwc");
     } else if (action == ui->actionRefresh) {
+        // Clear everything
         ui->lineEditNum->clear();
         ui->comboBoxFrom->setCurrentIndex(0);
         ui->comboBoxTo->setCurrentIndex(0);
@@ -69,12 +77,14 @@ void WindowNumParse::actions() {
 }
 
 void WindowNumParse::back() {
+    // Return to main window and keep this window hidden
     QMainWindow::parentWidget()->show();
 
     this->hide();
 }
 
 void WindowNumParse::swap() {
+    // Swap texts in line edit and result label
     QString temp = ui->labelResult->text().mid(
             ui->labelResult->text().indexOf(' ') + 1,
             ui->labelResult->text().size() -
@@ -82,9 +92,15 @@ void WindowNumParse::swap() {
 
     ui->labelResult->setText("Result:");
     ui->lineEditNum->setText(temp);
+
+    // Swap options
+    int tmpIndex = ui->comboBoxFrom->currentIndex();
+    ui->comboBoxFrom->setCurrentIndex(ui->comboBoxTo->currentIndex());
+    ui->comboBoxTo->setCurrentIndex(tmpIndex);
 }
 
 void WindowNumParse::translate() {
+    // Check user to choose not the same operations and enter text
     if (ui->comboBoxFrom->currentIndex() == 0 || ui->comboBoxTo->currentIndex() == 0) {
         ui->statusBar->showMessage("Choose one of the options to translate", 5000);
 
@@ -103,6 +119,7 @@ void WindowNumParse::translate() {
         return;
     }
 
+    // Store entered code as decimal number
     qint64 num;
 
     switch (ui->comboBoxFrom->currentIndex()) {
@@ -128,6 +145,7 @@ void WindowNumParse::translate() {
             return;
     }
 
+    // Show result depending on chosen option
     switch (ui->comboBoxTo->currentIndex()) {
         case 1: // BIN
             ui->labelResult->setText("Result: " + QString::number(num, 2));
@@ -153,6 +171,7 @@ void WindowNumParse::translate() {
 }
 
 void WindowNumParse::switchValidators() {
+    // Set validator depending on chosen option
     switch (ui->comboBoxFrom->currentIndex()) {
         case 0: // Default choice
             ui->lineEditNum->setValidator(nullptr);
@@ -178,5 +197,16 @@ void WindowNumParse::switchValidators() {
             qDebug() << "Invalid choice" << Qt::endl;
 
             return;
+    }
+}
+
+void WindowNumParse::checkLineEdit() {
+    // Check the user to choose the option before enter the text
+    if (!ui->lineEditNum->text().isEmpty() && ui->comboBoxFrom->currentIndex() == 0) {
+        ui->statusBar->showMessage("Choose the option first", 5000);
+
+        ui->lineEditNum->clear();
+
+        return;
     }
 }

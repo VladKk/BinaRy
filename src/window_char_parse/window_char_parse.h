@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QRegExpValidator>
 
+// Place WindowCharParse class in Ui namespace to create ui
 QT_BEGIN_NAMESPACE
 namespace Ui { class WindowCharParse; }
 QT_END_NAMESPACE
